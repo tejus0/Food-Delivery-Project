@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Adding express to our site . Visit ->  https://expressjs.com/en/starter/installing.html
+
+### Adding Nodemon and Mongoose .
+
+### To start the express server , type : npm run server 
+
+### Adding multiple data to Atlas at once 
+
+### Atlas Food Web Password - Kunal1234
