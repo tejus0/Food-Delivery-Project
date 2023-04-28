@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const jwt=require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.SECRET_KEY;
 
 router.post(
@@ -69,7 +69,7 @@ router.post(
       if (!pwdCompare) {
         return res.status(400).json({ errors: "Enter correct password" });
       }
- 
+
       const data = {
         user: {
           id: userData.id,
