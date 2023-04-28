@@ -23,7 +23,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Atlas Food Web Password - Kunal1234
+
 
 # bcryptjs for validation of password 
 # jsonwebtoken for security 
