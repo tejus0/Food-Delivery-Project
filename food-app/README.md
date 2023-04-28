@@ -78,4 +78,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Adding multiple data to Atlas at once 
 
-### Atlas Food Web Password - Kunal1234
+### 

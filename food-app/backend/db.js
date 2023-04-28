@@ -4,7 +4,7 @@ const URI =
   "mongodb+srv://FoodWebAdmin:Kunal1234@cluster0.gqetjco.mongodb.net/Foodwebmern?retryWrites=true&w=majority";
 const mongoDB = async () => {
   mongoose.set("strictQuery", true);
-  await mongoose.connect(URI, { useNewUrlParser: true }, async (err, res) => {
+  await mongoose.connect(URI, { useNewUrlParser: true , useUnifiedTopology:true, useCreateIndex:true}, async (err, res) => {
     if (err) {
       console.log("--", err);
     } else {

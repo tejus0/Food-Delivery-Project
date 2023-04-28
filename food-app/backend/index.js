@@ -1,6 +1,7 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 const mongoDB = require("./db");
 mongoDB();
@@ -16,6 +17,8 @@ app.use((req, res, next) => {
 
 // json is used as we are fetching data we wrote in body of ThunderClient in CreateUser
 app.use(express.json());
+
+console.log(process.env.SECRET_KEY)
 // app.use is used as middleware in every request to server made with first param as path
 app.use("/api", require("./Routes/CreateUser"));
 app.use("/api", require("./Routes/DisplayData"));
