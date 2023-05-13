@@ -1,7 +1,7 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 const mongoDB = require("./db");
 mongoDB();
@@ -22,6 +22,7 @@ app.use(express.json());
 // app.use is used as middleware in every request to server made with first param as path
 app.use("/api", require("./Routes/CreateUser"));
 app.use("/api", require("./Routes/DisplayData"));
+app.use("/api", require("./Routes/OrderData"));
 
 app.get("/", (req, res) => {
   // if runs then express is working

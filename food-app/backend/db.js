@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const URI =
-  `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.gqetjco.mongodb.net/Foodwebmern?retryWrites=true&w=majority`;
+const URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.gqetjco.mongodb.net/Foodwebmern?retryWrites=true&w=majority`;
 const mongoDB = async () => {
   mongoose.set("strictQuery", true);
   await mongoose.connect(
@@ -23,7 +22,8 @@ const mongoDB = async () => {
             else {
               global.dish_items = data;
               global.foodCategory = catData;
-              //console.log(global.dish_items);
+              console.
+              log(global.dish_items);
             }
           });
         });

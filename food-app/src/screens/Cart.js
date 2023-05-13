@@ -1,5 +1,5 @@
 import React from "react";
-// import DeleteForever from '@mui/icons-material/DeleteForever'; 
+// import DeleteForever from '@mui/icons-material/DeleteForever';
 import { useCart, useDispatchCart } from "../components/ContextReducer";
 export default function Cart() {
   let data = useCart();
@@ -19,7 +19,7 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5000/api/auth/orderData", {
+    let response = await fetch("http://localhost:5000/api/orderData", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",
@@ -29,10 +29,10 @@ export default function Cart() {
       body: JSON.stringify({
         order_data: data,
         email: userEmail,
-        order_date: new Date().toDateString(),
-      }),
+        order_date: new Date().toDateString()
+      })
     });
-    console.log("JSON RESPONSE:::::", response.status);
+    console.log("JSON RESPONSE:::::", response);
     if (response.status === 200) {
       dispatch({ type: "DROP" });
     }
@@ -63,9 +63,13 @@ export default function Cart() {
                 <td>{food.size}</td>
                 <td>{food.price}</td>
                 <td>
-                  <button type="button" className="btn p-0"  onClick={() => {
-                        dispatch({ type: "REMOVE", index: index });
-                      }}>
+                  <button
+                    type="button"
+                    className="btn p-0"
+                    onClick={() => {
+                      dispatch({ type: "REMOVE", index: index });
+                    }}
+                  >
                     here
                     {/* <DeleteForever
                       onClick={() => {

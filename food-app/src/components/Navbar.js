@@ -7,7 +7,7 @@ import Cart from "../screens/Cart";
 import { useCart } from "./ContextReducer";
 
 function Navbar() {
-  let data=useCart();
+  let data = useCart();
   const [cartView, setCartView] = useState(false);
   const navigate = useNavigate();
 
@@ -18,7 +18,14 @@ function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-        <div className="container-fluid">
+        <div className="container-fluid  ">
+          <div className="logo">
+          <img
+            src="https://jcboseust.ac.in/assets/uploads/media/e11f95725a67cdcc447f76a7fa75eef7.jpg"
+            className=" rounded-circle h-50 w-50"
+            alt="LOGO"
+          />
+          </div>
           <Link className="navbar-brand fs-1 fst-italic" to="/">
             FoodWeb
           </Link>
@@ -50,7 +57,7 @@ function Navbar() {
                   <Link
                     className="nav-link active fs-5"
                     aria-current="page"
-                    to="/"
+                    to="/myOrders"
                   >
                     My Orders
                   </Link>
