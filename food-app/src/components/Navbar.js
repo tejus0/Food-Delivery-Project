@@ -19,13 +19,13 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
         <div className="container-fluid  ">
-          <div className="logo h-10 w-40">
+          {/* <div className="logo h-10 w-40">
           <img
             src="https://jcboseust.ac.in/assets/uploads/media/e11f95725a67cdcc447f76a7fa75eef7.jpg"
             className=" rounded-circle h-10 w-40"
             alt="LOGO"
           />
-          </div>
+          </div> */}
           <Link className="navbar-brand fs-1 fst-italic" to="/">
             Canteen
           </Link>
