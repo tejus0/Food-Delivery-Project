@@ -1,6 +1,6 @@
 import React from "react";
-// import DeleteForever from '@mui/icons-material/DeleteForever';
 import { useCart, useDispatchCart } from "../components/ContextReducer";
+import { MDBIcon } from "mdb-react-ui-kit";
 export default function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
@@ -11,10 +11,6 @@ export default function Cart() {
       </div>
     );
   }
-  // const handleRemove = (index)=>{
-  //   console.log(index)
-  //   dispatch({type:"REMOVE",index:index})
-  // }
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
@@ -29,8 +25,8 @@ export default function Cart() {
       body: JSON.stringify({
         order_data: data,
         email: userEmail,
-        order_date: new Date().toDateString()
-      })
+        order_date: new Date().toDateString(),
+      }),
     });
     console.log("JSON RESPONSE:::::", response);
     if (response.status === 200) {
@@ -42,7 +38,7 @@ export default function Cart() {
   return (
     <div>
       {console.log(data)}
-      <div className="container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md">
+      <div className="container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md">
         <table className="table table-hover ">
           <thead className=" text-success fs-4">
             <tr>
@@ -56,7 +52,7 @@ export default function Cart() {
           </thead>
           <tbody>
             {data.map((food, index) => (
-              <tr>
+              <tr class="text-white">
                 <th scope="row">{index + 1}</th>
                 <td>{food.name}</td>
                 <td>{food.qty}</td>
@@ -65,18 +61,13 @@ export default function Cart() {
                 <td>
                   <button
                     type="button"
-                    className="btn p-0"
+                    className="btn p-0 text-danger"
                     onClick={() => {
                       dispatch({ type: "REMOVE", index: index });
                     }}
                   >
-                    here
-                    {/* <DeleteForever
-                      onClick={() => {
-                        dispatch({ type: "REMOVE", index: index });
-                      }}
-                    /> */}
-                  </button>{" "}
+                    <MDBIcon fas icon="trash" />
+                  </button>
                 </td>
               </tr>
             ))}

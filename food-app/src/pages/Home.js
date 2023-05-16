@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 function Home() {
-  const [search,setSearch]=useState('');
+  const [search, setSearch] = useState("");
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
   const loadData = async () => {
@@ -30,71 +30,76 @@ function Home() {
         <Navbar />
       </div>
       <div>
-      <div
-        id="carouselExampleFade"
-        class="carousel slide carousel-fade"
-        data-bs-ride="carousel" style={{objectFit:"contain !important"}}
-      >
-        <div className="carousel-inner" id="carousel">
-          <div className="carousel-caption " style={{ zIndex: "2" }}>
-            <div className=" d-flex justify-centre">
-              <input
-                className="form-control bg mx-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                value={search} onChange={(e)=>{setSearch(e.target.value)}}
-              />
-              {/* <button
+        <div
+          id="carouselExampleFade"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+          style={{ objectFit: "contain !important" }}
+        >
+          <div className="carousel-inner" id="carousel">
+            <div className="carousel-caption " style={{ zIndex: "2" }}>
+              <div className=" d-flex justify-centre">
+                <input
+                  className="form-control bg mx-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
+                />
+                {/* <button
                 className="btn btn-outline-success text-white bg-success"
                 type="submit"
               >
                 Search
               </button> */}
+              </div>
+            </div>
+
+            <div class="carousel-item active">
+              <img
+                src="https://picsum.photos/900/300?random=1"
+                alt="experiment"
+                class="d-block w-100"
+                style={{ filter: "brightness(50%)" }}
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://picsum.photos/900/300?random=2"
+                class="d-block w-100"
+                style={{ filter: "brightness(50%)" }}
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://picsum.photos/900/300?random=3"
+                class="d-block w-100"
+                style={{ filter: "brightness(50%)" }}
+              />
             </div>
           </div>
-
-          <div class="carousel-item active">
-            <img
-              src="https://picsum.photos/900/300?random=1"
-              class="d-block w-100"
-              style={{ filter: "brightness(50%)" }}
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://picsum.photos/900/300?random=2"
-              class="d-block w-100"
-              style={{ filter: "brightness(50%)" }}
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://picsum.photos/900/300?random=3"
-              class="d-block w-100"
-              style={{ filter: "brightness(50%)" }}
-            />
-          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleFade"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleFade"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleFade"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
       </div>
       <div className="container">
         {foodCat !== []
@@ -107,14 +112,21 @@ function Home() {
                   <hr />
                   {foodItem != [] ? (
                     foodItem
-                      .filter((item) => (item.CategoryName === data.CategoryName) && (item.name.toLowerCase().includes(search)))
+                      .filter(
+                        (item) =>
+                          item.CategoryName === data.CategoryName &&
+                          item.name.toLowerCase().includes(search)
+                      )
                       .map((filteredItems) => {
                         return (
                           <div
                             key={filteredItems._id}
                             className="col-12 col-md-6 col-lg-3 m-3"
                           >
-                            <Card foodItem ={filteredItems} options={filteredItems.options[0]} ></Card>
+                            <Card
+                              foodItem={filteredItems}
+                              options={filteredItems.options[0]}
+                            ></Card>
                           </div>
                         );
                       })

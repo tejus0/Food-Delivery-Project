@@ -16,3 +16,6 @@ code {
 #carousel{
   max-height: 500px;
 }
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}

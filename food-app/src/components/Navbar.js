@@ -19,15 +19,15 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
         <div className="container-fluid  ">
-          <div className="logo">
+          <div className="logo h-10 w-40">
           <img
             src="https://jcboseust.ac.in/assets/uploads/media/e11f95725a67cdcc447f76a7fa75eef7.jpg"
-            className=" rounded-circle h-50 w-50"
+            className=" rounded-circle h-10 w-40"
             alt="LOGO"
           />
           </div>
           <Link className="navbar-brand fs-1 fst-italic" to="/">
-            FoodWeb
+            Canteen
           </Link>
           <button
             className="navbar-toggler"
