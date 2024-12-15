@@ -9,7 +9,7 @@ function Home() {
   const [foodItem, setFoodItem] = useState([]);
   const loadData = async () => {
     let response = await fetch("http://localhost:5000/api/foodData", {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
