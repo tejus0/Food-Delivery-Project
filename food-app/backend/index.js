@@ -35,7 +35,7 @@ app.use("/api", require("./Routes/OrderData"));
 
 app.get("/", (req, res) => {
   // if runs then express is working
-  res.send("Hello World!    --------");
+  res.json("Hello World!    --------");
 });
 
 app.listen(port, () => {
