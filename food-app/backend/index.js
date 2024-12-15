@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT ||  5000;
 
 const corsOptions = {
-   origin:'http://localhost:3000',
+   origin:'',
   //origin:[""],
   method:["POST","GET"],
   credentials:true
@@ -15,14 +15,14 @@ app.use(cors(corsOptions));
 const mongoDB = require("./db");
 mongoDB();
 //necessary to import for corss origin with mongoDB
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
-});
+}); */
 
 // json is used as we are fetching data we wrote in body of ThunderClient in CreateUser
 app.use(express.json());
