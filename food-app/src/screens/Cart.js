@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
 import { MDBIcon } from "mdb-react-ui-kit";
+import { toast } from "react-toastify";
 export default function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
@@ -64,6 +65,7 @@ export default function Cart() {
                     className="btn p-0 text-danger"
                     onClick={() => {
                       dispatch({ type: "REMOVE", index: index });
+                      toast.success("Item removed Successfully")
                     }}
                   >
                     <MDBIcon fas icon="trash" />

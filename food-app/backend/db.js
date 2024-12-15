@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.gqetjco.mongodb.net/Foodwebmern?retryWrites=true&w=majority`;
+require("dotenv").config();
+const URI=`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.gqetjco.mongodb.net/Foodwebmern?retryWrites=true&w=majority`;
+// const URI = `mongodb+srv://@cluster0.gqetjco.mongodb.net/Foodwebmern?retryWrites=true&w=majority`;
 const mongoDB = async () => {
   mongoose.set("strictQuery", true);
   await mongoose.connect(
@@ -7,6 +9,7 @@ const mongoDB = async () => {
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
     async (err, res) => {
       if (err) {
+        console.log("error in db")
         console.log("--", err);
       } else {
         console.log("connected");

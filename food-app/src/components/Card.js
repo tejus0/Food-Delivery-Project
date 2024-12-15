@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatchCart, useCart } from "./ContextReducer";
 import './cardd.css'
+import { toast } from "react-toastify";
 
 function Card(props) {
   let dispatch = useDispatchCart();
@@ -49,6 +50,7 @@ function Card(props) {
       qty: qty,
       size: size,
     });
+    toast.success("Item Added Successfully")
   };
   let finalPrice = qty * parseInt(options[size]);
   useEffect(() => {

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Signup() {
+
+  let navigate = useNavigate();
   const [credentials, setcredentials] = useState({
     name: "",
     email: "",
@@ -35,8 +38,19 @@ function Signup() {
     console.log(json);
 
     if (!json.success) {
-      alert("Enter valid credentials");
+      toast.error("Enter valid credentials");
+      return;
     }
+
+    toast.success("Signed Up Successfully")
+    navigate("/login");
+
+    /* setcredentials({
+      name: "",
+      email: "",
+      password: "",
+      geolocation: "",
+    }); */
   };
   const onChange = (e) => {
     setcredentials({ ...credentials, [e.target.name]: e.target.value });

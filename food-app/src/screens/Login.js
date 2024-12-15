@@ -10,6 +10,7 @@ import {
   MDBInput,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
+import {toast} from "react-toastify"
 
 function Login() {
   const [credentials, setcredentials] = useState({
@@ -40,9 +41,15 @@ function Login() {
     // console.log(json);
 
     if (!json.success) {
-      alert("Enter valid credentials");
+      toast.error("Enter valid credentials")
+      setcredentials({
+        email: "",
+        password: "",
+      })
+    //  alert("Enter valid credentials");
     }
     if (json.success) {
+      toast.success("Logged in successfully")
       localStorage.setItem("userEmail", credentials.email);
       localStorage.setItem("authToken", json.authToken);
       // console.log(localStorage.getItem("userEmail"));
