@@ -26,7 +26,7 @@ function Login() {
         password: credentials.password,
       })
     ); */
-    const response = await fetch("http://localhost:5000/api/loginuser", {
+    const response = await fetch("https://food-delivery-project-frontend.vercel.app/api/loginuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

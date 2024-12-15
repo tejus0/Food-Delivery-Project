@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT ||  5000;
 
 const corsOptions = {
-   origin:'',
+   origin:'https://food-delivery-project-frontend.vercel.app',
   //origin:[""],
   method:["POST","GET"],
   credentials:true
