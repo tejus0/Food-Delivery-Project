@@ -4,28 +4,34 @@ const URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}
 
 const mongoDB = async () => {
   mongoose.set("strictQuery", true);
-  
+
   try {
+    // Connect to MongoDB using await
     await mongoose.connect(URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
-    
+
     console.log("connected");
 
-    // Fetch dish items and food category in parallel
-    const [dishData, foodCategoryData] = await Promise.all([
-      mongoose.connection.db.collection("dish-items").find({}).toArray(),
-      mongoose.connection.db.collection("food-category").find({}).toArray(),
-    ]);
+    // Fetch the collections
+    const fetchedData = await mongoose.connection.db
+      .collection("dish-items")
+      .find({})
+      .toArray();
 
-    // Set global variables after fetching data
-    global.dish_items = dishData;
-    global.foodCategory = foodCategoryData;
-    
-    console.log(global.dish_items);
-    console.log(global.foodCategory);
+    const foodCategory = await mongoose.connection.db
+      .collection("food-category")
+      .find({})
+      .toArray();
+
+    // Set global variables
+    global.dish_items = fetchedData;
+    global.foodCategory = foodCategory;
+
+/*     console.log(global.dish_items);
+    console.log(global.foodCategory); */
 
   } catch (err) {
     console.log("error in db");
@@ -34,3 +40,4 @@ const mongoDB = async () => {
 };
 
 module.exports = mongoDB;
+
